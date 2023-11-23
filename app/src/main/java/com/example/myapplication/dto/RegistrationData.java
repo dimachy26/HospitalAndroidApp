@@ -1,55 +1,20 @@
-package com.example.myapplication;
+package com.example.myapplication.dto;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Family {
+import java.io.Serializable;
+import java.time.LocalDate;
 
-    @SerializedName("id_family")
-    private int idFamily;
-
-    @SerializedName("first_name")
+public class RegistrationData implements  Serializable{
     private String firstName;
-
-    @SerializedName("second_name")
     private String secondName;
-
-    @SerializedName("last_name")
     private String lastName;
-
-    @SerializedName("birthdate")
     private String birthdate;
-
-    @SerializedName("age")
     private int age;
-
-    @SerializedName("number")
     private String number;
-
-    @SerializedName("login")
     private String login;
-
-    @SerializedName("password")
     private String password;
-
-    public Family(int idFamily, String firstName, String secondName, String lastName, String birthdate, int age, String number, String login, String password) {
-        this.idFamily = idFamily;
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.lastName = lastName;
-        this.birthdate = birthdate;
-        this.age = age;
-        this.number = number;
-        this.login = login;
-        this.password = password;
-    }
-
-    public int getIdFamily() {
-        return idFamily;
-    }
-
-    public void setIdFamily(int idFamily) {
-        this.idFamily = idFamily;
-    }
+    private String email;
 
     public String getFirstName() {
         return firstName;
@@ -113,5 +78,13 @@ public class Family {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

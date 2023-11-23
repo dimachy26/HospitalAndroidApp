@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    tools:context=".activities.RegistrationActivity">
+
+
+        <EditText
+            android:id="@+id/editFirstName"
+            style="@style/RoundedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите имя"
+            android:text="Тест"/>
+
+        <EditText
+            android:id="@+id/editSecondName"
+            style="@style/RoundedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите отчество"
+            android:text="Тестович"/>
+
+        <EditText
+            android:id="@+id/editLastName"
+            style="@style/RoundedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите фамилию"
+            android:text="Тестов"/>
+
+        <EditText
+            android:id="@+id/editBirthdate"
+            style="@style/RoundedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите дату рождения"
+            android:text="1999-12-12"/>
+
+        <EditText
+            android:id="@+id/editPhoneNumber"
+            style="@style/RoundedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите номер телефона"
+            android:text="+7-954-862-83-79"/>
+
+        <EditText
+            android:id="@+id/editEmail"
+            style="@style/RoundedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите почту"
+            android:text="test@gmail.com"/>
+
+        <EditText
+            android:id="@+id/editLogin"
+            style="@style/RoundedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите логин"
+            android:text="test"/>
+
+        <EditText
+            android:id="@+id/editPassword"
+            style="@style/RoundedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите пароль"
+            android:text="123"/>
+
+        <Button
+            android:id="@+id/registrationBtn"
+            style="@style/PrimaryButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="registrationClick"
+            android:text="Зарегистрироваться" />
+</LinearLayout>
