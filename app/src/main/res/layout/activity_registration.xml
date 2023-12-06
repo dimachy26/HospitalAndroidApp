@@ -11,7 +11,7 @@
 
 
         <EditText
-            android:id="@+id/editFirstName"
+            android:id="@+id/enterFirstName"
             style="@style/RoundedEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             android:text="Тест"/>
 
         <EditText
-            android:id="@+id/editSecondName"
+            android:id="@+id/enterSecondName"
             style="@style/RoundedEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:text="Тестович"/>
 
         <EditText
-            android:id="@+id/editLastName"
+            android:id="@+id/enterLastName"
             style="@style/RoundedEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:text="Тестов"/>
 
         <EditText
-            android:id="@+id/editBirthdate"
+            android:id="@+id/enterBirthdate"
             style="@style/RoundedEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             android:text="1999-12-12"/>
 
         <EditText
-            android:id="@+id/editPhoneNumber"
+            android:id="@+id/enterPhoneNumber"
             style="@style/RoundedEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             android:text="+7-954-862-83-79"/>
 
         <EditText
-            android:id="@+id/editEmail"
+            android:id="@+id/enterEmail"
             style="@style/RoundedEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             android:text="test@gmail.com"/>
 
         <EditText
-            android:id="@+id/editLogin"
+            android:id="@+id/enterLogin"
             style="@style/RoundedEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             android:text="test"/>
 
         <EditText
-            android:id="@+id/editPassword"
+            android:id="@+id/enterPassword"
             style="@style/RoundedEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

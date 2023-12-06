@@ -2,12 +2,8 @@ package com.example.myapplication.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.myapplication.ApiService;
 import com.example.myapplication.R;
@@ -50,14 +45,14 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        firstNameText = findViewById(R.id.editFirstName);
-        secondNameText = findViewById(R.id.editSecondName);
-        lastNameText = findViewById(R.id.editLastName);
-        birthdateText = findViewById(R.id.editBirthdate);
-        numberText = findViewById(R.id.editPhoneNumber);
-        emailText = findViewById(R.id.editEmail);
-        loginText = findViewById(R.id.editLogin);
-        passwordText = findViewById(R.id.editPassword);
+        firstNameText = findViewById(R.id.enterFirstName);
+        secondNameText = findViewById(R.id.enterSecondName);
+        lastNameText = findViewById(R.id.enterLastName);
+        birthdateText = findViewById(R.id.enterBirthdate);
+        numberText = findViewById(R.id.enterPhoneNumber);
+        emailText = findViewById(R.id.enterEmail);
+        loginText = findViewById(R.id.enterLogin);
+        passwordText = findViewById(R.id.enterPassword);
 
         registrationBtn = findViewById(R.id.registrationBtn);
 
@@ -69,14 +64,6 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     public void registrationClick(View view) {
-        firstNameText = findViewById(R.id.editFirstName);
-        secondNameText = findViewById(R.id.editSecondName);
-        lastNameText = findViewById(R.id.editLastName);
-        birthdateText = findViewById(R.id.editBirthdate);
-        numberText = findViewById(R.id.editPhoneNumber);
-        emailText = findViewById(R.id.editEmail);
-        loginText = findViewById(R.id.editLogin);
-        passwordText = findViewById(R.id.editPassword);
 
         RegistrationData registration = new RegistrationData();
         registration.setFirstName(firstNameText.getText().toString());
@@ -89,6 +76,8 @@ public class RegistrationActivity extends AppCompatActivity {
         registration.setPassword(passwordText.getText().toString());
 
         Call<RegistrationResponse> callRegistration = apiService.registration(registration);
+
+        System.out.println(registration);
 
         callRegistration.enqueue(new Callback<RegistrationResponse>() {
             @Override
@@ -109,45 +98,42 @@ public class RegistrationActivity extends AppCompatActivity {
                             ErrorResponse errorResponse = gson.fromJson(errorBody, ErrorResponse.class);
 
 
-                                // Duplicate fields
-                                List<String> duplicateFields = errorResponse.getDuplicateFields();
-                                Log.w("Conflict", "Конфликтуют поля: " + duplicateFields);
+                            // Duplicate fields
+                            List<String> duplicateFields = errorResponse.getDuplicateFields();
+                            Log.w("Conflict", "Конфликтуют поля: " + duplicateFields);
 
 
-                                //Изменение цвета edittext при конфликтах
-                                if(duplicateFields.contains("login")) {
-                                    loginText.setBackgroundResource(R.drawable.edit_text_background_error);
-                                    loginText.setText("");
-                                    loginText.setHint("Данный логин уже используется");
-                                    loginText.setHintTextColor(Color.RED);
-                                }
-                                else {
-                                    loginText.setBackgroundResource(R.drawable.edit_text_background);
-                                }
-                                if(duplicateFields.contains("email")) {
-                                    emailText.setBackgroundResource(R.drawable.edit_text_background_error);
-                                    emailText.setText("");
-                                    emailText.setHint("Данная почта уже используется");
-                                    emailText.setHintTextColor(Color.RED);
+                            //Изменение цвета edittext при конфликтах
+                            if (duplicateFields.contains("login")) {
+                                loginText.setBackgroundResource(R.drawable.edit_text_background_error);
+                                loginText.setText("");
+                                loginText.setHint("Данный логин уже используется");
+                                loginText.setHintTextColor(Color.RED);
+                            } else {
+                                loginText.setBackgroundResource(R.drawable.edit_text_background);
+                            }
+                            if (duplicateFields.contains("email")) {
+                                emailText.setBackgroundResource(R.drawable.edit_text_background_error);
+                                emailText.setText("");
+                                emailText.setHint("Данная почта уже используется");
+                                emailText.setHintTextColor(Color.RED);
 
-                                }
-                                else {
-                                    emailText.setBackgroundResource(R.drawable.edit_text_background);
-                                }
-                                if(duplicateFields.contains("number")) {
-                                    numberText.setBackgroundResource(R.drawable.edit_text_background_error);
-                                    numberText.setText("");
-                                    numberText.setHint("Данный номер телефона уже используется");
-                                    numberText.setHintTextColor(Color.RED);
-                                }
-                                else {
-                                    numberText.setBackgroundResource(R.drawable.edit_text_background);
-                                }
+                            } else {
+                                emailText.setBackgroundResource(R.drawable.edit_text_background);
+                            }
+                            if (duplicateFields.contains("number")) {
+                                numberText.setBackgroundResource(R.drawable.edit_text_background_error);
+                                numberText.setText("");
+                                numberText.setHint("Данный номер телефона уже используется");
+                                numberText.setHintTextColor(Color.RED);
+                            } else {
+                                numberText.setBackgroundResource(R.drawable.edit_text_background);
+                            }
 
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    } else{
+                    } else {
                         //Others Errors
                         Log.d("Ошибка", "Код ответа: " + response.code());
                     }
@@ -202,10 +188,12 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
 
         @Override
         public void afterTextChanged(Editable s) {
@@ -213,8 +201,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (editText.getText().toString().trim().length() <= 0) {
                     v.setEnabled(false);
                     break;
-                }
-                else v.setEnabled(true);
+                } else v.setEnabled(true);
             }
         }
     }

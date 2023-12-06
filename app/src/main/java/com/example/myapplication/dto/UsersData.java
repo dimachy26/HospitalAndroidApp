@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class UsersData implements Serializable {
 
 
-    private int userId;
+    private Long userId;
     private String firstName;
     private String secondName;
     private String lastName;
@@ -19,12 +19,12 @@ public class UsersData implements Serializable {
     private String password;
     private String email;
 
-    public int getIdFamily() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setIdFamily(int idFamily) {
-        this.userId = idFamily;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {

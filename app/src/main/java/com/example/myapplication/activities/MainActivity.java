@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void registrationClick(View view){
+    public void newAccRegistrationClick(View view){
         Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
         startActivity(intent);
     }

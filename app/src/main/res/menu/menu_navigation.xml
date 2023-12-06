@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_item1"
-        android:title="Пункт меню 1"/>
+        android:id="@+id/myProfile"
+        android:title="Мой профиль"/>
 
     <item
-        android:id="@+id/menu_item2"
-        android:title="Пункт меню 2"/>
+        android:id="@+id/myDoctor"
+        android:title="Мой врач"/>
 </menu>

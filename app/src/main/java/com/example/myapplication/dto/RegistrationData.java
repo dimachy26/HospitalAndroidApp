@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class RegistrationData implements  Serializable{
+public class RegistrationData implements Serializable {
     private String firstName;
     private String secondName;
     private String lastName;
