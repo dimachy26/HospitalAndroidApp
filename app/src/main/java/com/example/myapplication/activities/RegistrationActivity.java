@@ -31,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegistrationActivity extends AppCompatActivity {
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.31.5:8080/api/users/")
+            .baseUrl("http://185.250.46.135:8081/api/users/")
             .addConverterFactory(GsonConverterFactory.create()) // Use Gson for JSON parsing
             .build();
 
@@ -98,7 +98,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             ErrorResponse errorResponse = gson.fromJson(errorBody, ErrorResponse.class);
 
 
-                            // Duplicate fields
+                            // Одиннаковые поля
                             List<String> duplicateFields = errorResponse.getDuplicateFields();
                             Log.w("Conflict", "Конфликтуют поля: " + duplicateFields);
 
@@ -134,7 +134,6 @@ public class RegistrationActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     } else {
-                        //Others Errors
                         Log.d("Ошибка", "Код ответа: " + response.code());
                     }
                 }
@@ -142,7 +141,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<RegistrationResponse> call, Throwable t) {
-                Log.w("Ошибка сервера", "А че делать-то" + t);
+                Log.w("Ошибка сервера", ":" + t);
             }
         });
     }
@@ -177,6 +176,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
+    //Запрет на нажатие кнопки регистрации при наличии пустых полей
     public class CustomTextWatcher implements TextWatcher {
 
         View v;

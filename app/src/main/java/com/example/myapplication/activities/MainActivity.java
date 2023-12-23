@@ -28,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.31.5:8080/api/users/")
+            .baseUrl("http://185.250.46.135:8081/api/users/")
             .addConverterFactory(GsonConverterFactory.create()) // Use Gson for JSON parsing
             .build();
 

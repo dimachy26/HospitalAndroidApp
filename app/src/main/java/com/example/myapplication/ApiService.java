@@ -1,9 +1,12 @@
 package com.example.myapplication;
 
 import com.example.myapplication.dto.AuthorizationDate;
+import com.example.myapplication.dto.DoctorData;
 import com.example.myapplication.dto.RegistrationData;
 import com.example.myapplication.dto.RegistrationResponse;
 import com.example.myapplication.dto.UsersData;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -25,4 +28,7 @@ public interface ApiService {
 
     @PUT("update/{userId}")
     Call<RegistrationResponse> updateUser(@Path("userId") Long userId, @Body UsersData usersData);
+
+    @GET("doctors/{userId}")
+    Call<List<DoctorData>> getDoctorsByUserId(@Path("userId") Long userId);
 }

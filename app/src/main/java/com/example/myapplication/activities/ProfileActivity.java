@@ -31,8 +31,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ProfileActivity extends AppCompatActivity {
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.31.5:8080/api/users/")
-            .addConverterFactory(GsonConverterFactory.create()) // Use Gson for JSON parsing
+            .baseUrl("http://185.250.46.135:8081/api/users/")
+            .addConverterFactory(GsonConverterFactory.create())
             .build();
 
     ApiService apiService = retrofit.create(ApiService.class);
@@ -91,16 +91,16 @@ public class ProfileActivity extends AppCompatActivity {
                             // Обработка успешного обновления
                             Toast.makeText(ProfileActivity.this, "Профиль успешно обновлен", Toast.LENGTH_SHORT).show();
                         } else {
-                            // Обработка неудачи (например, ответ сервера говорит об ошибке на стороне сервера)
+                            // Обработка неудачи
                             Toast.makeText(ProfileActivity.this, "Не удалось обновить профиль", Toast.LENGTH_SHORT).show();
-                            Log.i("Ошибка","Ну вот так" + response.body());
+                            Log.i("Error","of" + response.body());
                         }
                     } else {
                         // Обработка пустого тела ответа
                         Toast.makeText(ProfileActivity.this, "Пустой ответ от сервера", Toast.LENGTH_SHORT).show();
                     }
                 } else if (response.code() == 404) {
-                    // Обработка статуса 404 (ресурс не найден)
+                    // Обработка статуса 404
                     Toast.makeText(ProfileActivity.this, "Пользователь не найден", Toast.LENGTH_SHORT).show();
                 } else {
                     // Обработка других ошибок
@@ -112,7 +112,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onFailure(Call<RegistrationResponse> call, Throwable t) {
                 // Обработка неудачи
                 Toast.makeText(ProfileActivity.this, "Не удалось обновить профиль: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("Program Error","Увы" + t.getMessage());
+                Log.e("Program Error","Of" + t.getMessage());
             }
         });
     }

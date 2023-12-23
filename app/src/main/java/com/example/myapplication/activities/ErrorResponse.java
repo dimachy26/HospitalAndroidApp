@@ -8,7 +8,6 @@ public class ErrorResponse {
     @SerializedName("duplicateFields")
     private List<String> duplicateFields;
 
-    // Геттеры и сеттеры
     public List<String> getDuplicateFields() {
         return duplicateFields;
     }
